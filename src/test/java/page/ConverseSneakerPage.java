@@ -94,6 +94,6 @@ public class ConverseSneakerPage extends AbstractPage {
     }
 
     public String findUser(){
-        return waitUntilPresenceOfElement(By.xpath("//span[text()='']")).getText();
+        return waitUntilPresenceOfElement(By.xpath("//span[@class='header-utility__item text--semibold display--medium-up']")).getText();
     }
 }
