@@ -17,6 +17,17 @@ public class ConverseCartTest extends CommonConditions {
     private final String expectedColor =  "Navy";
     private final String expectedUserName =  "Hey, Alexandra";
 
+    @Test
+    public void removeProductFromCartTest(){
+        String cartResult = new ConverseSneakerPage(driver)
+                .openSneakerPage()
+                .addProductToCart()
+                .closeItemsInCart()
+                .openCartPage()
+                .removeProduct()
+                .isRemove();
+        Assert.assertEquals(cartResult, productRemove);
+    }
 
     @Test
     public void addToCartTest(){
@@ -30,17 +41,6 @@ public class ConverseCartTest extends CommonConditions {
         Assert.assertEquals(cartResult, expectedResult);
     }
 
-    @Test
-    public void removeProductFromCartTest(){
-        String cartResult = new ConverseSneakerPage(driver)
-                .openSneakerPage()
-                .addProductToCart()
-                .closeItemsInCart()
-                .openCartPage()
-                .removeProduct()
-                .isRemove();
-        Assert.assertEquals(cartResult, productRemove);
-    }
 
     @Test
     public void editColorFromCartTest() {

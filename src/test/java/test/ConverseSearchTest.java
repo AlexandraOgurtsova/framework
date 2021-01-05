@@ -10,7 +10,7 @@ import page.ConverseSneakerPage;
 
 public class ConverseSearchTest extends CommonConditions {
 
-    private final String expectedResult =  "Oops. We couldn’t find anything that matches your search.";
+    private final String expectedResult =  "Oops. We couldn't find anything that matches your search.";
     private final String expectedProduct ="Be Heard Chuck 70";
 
     @Test
@@ -18,7 +18,7 @@ public class ConverseSearchTest extends CommonConditions {
         String result = new ConverseHomePage(driver)
                 .openHomePage()
                 .openSearch()
-                .searchInput("вечерело")
+                .searchInput("GGGGGG")
                 .noCorrectRequestResult();
         Assert.assertEquals(result, expectedResult);
     }

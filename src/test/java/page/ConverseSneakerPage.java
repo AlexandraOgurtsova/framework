@@ -94,6 +94,6 @@ public class ConverseSneakerPage extends AbstractPage {
     }
 
     public String findUser(){
-        return waitUntilPresenceOfElement(By.xpath("//span[text()='Hey, Alexandra']")).getText();
+        return waitUntilPresenceOfElement(By.xpath("//span[text()='']")).getText();
     }
 }
