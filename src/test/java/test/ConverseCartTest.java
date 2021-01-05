@@ -71,7 +71,6 @@ public class ConverseCartTest extends CommonConditions {
         String cartResult = new ConverseSneakerPage(driver)
                 .openSneakerPage()
                 .addProductToCart()
-                .closeItemsInCart()
                 .logIntoAccount(testUser)
                 .openCartPage()
                 .getCartResult();
