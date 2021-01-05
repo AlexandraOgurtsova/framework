@@ -17,7 +17,6 @@ public class ConverseSearchTest extends CommonConditions {
     public void searchWithFailedTerms(){
         String result = new ConverseHomePage(driver)
                 .openHomePage()
-                .closeThePopUpWindow()
                 .openSearch()
                 .searchInput("вечерело")
                 .noCorrectRequestResult();
