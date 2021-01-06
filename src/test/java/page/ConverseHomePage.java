@@ -10,7 +10,7 @@ public class ConverseHomePage extends AbstractPage {
     private final String HOME_URL = "https://www.converse.com/us";
 
     @FindBy(xpath="//button[@class='window-modal__close']")
-    private WebElement closeBlockButtonLocator;
+    private WebElement closeBlockButton;
 
     @FindBy(xpath="//div[@class='header-search']")
     private WebElement openSearchButton;
@@ -25,7 +25,7 @@ public class ConverseHomePage extends AbstractPage {
     private WebElement foundResultLocator;
 
     @FindBy(xpath="//h1[@class='pdp-primary-information__product-name display--small-up']")
-    private WebElement findConcretResultLocator;
+    private WebElement foundConcretResultLocator;
 
     public ConverseHomePage(WebDriver driver) {
         super(driver);
@@ -37,7 +37,7 @@ public class ConverseHomePage extends AbstractPage {
     }
 
     public ConverseHomePage closeThePopUpWindow(){
-        waitUntilElementIsClickable(closeBlockButtonLocator).click();
+        waitUntilElementIsClickable(closeBlockButton).click();
         return this;
     }
 
@@ -53,7 +53,7 @@ public class ConverseHomePage extends AbstractPage {
     }
 
     public String findConcretProductResult(){
-        return waitUntilVisibilityOf(findConcretResultLocator).getText();
+        return waitUntilVisibilityOf(foundConcretResultLocator).getText();
     }
 
     public String noCorrectRequestResult(){

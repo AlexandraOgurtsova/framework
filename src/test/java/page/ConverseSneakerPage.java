@@ -12,7 +12,7 @@ public class ConverseSneakerPage extends AbstractPage {
     private final String SNEAKERS_URL = "https://www.converse.com/shop/p/chuck-taylor-all-star-unisex-high-top-shoe/M9622_040.html?pid=M9006MP&dwvar_M9006MP_color=navy&dwvar_M9006MP_size=040&dwvar_M9006MP_width=standard&styleNo=M9622&pdp=true";
 
     @FindBy(xpath="//button[@class='window-modal__close']")
-    private WebElement closeBlockButtonLocator;
+    private WebElement closeBlockButton;
 
     @FindBy(xpath="//div[@class='header-utility__item header-utility__item--icon header-user flex display--small-up']")
     private WebElement signInLocator;
@@ -24,19 +24,19 @@ public class ConverseSneakerPage extends AbstractPage {
     private WebElement inputPasswordLocator;
 
     @FindBy(xpath="//button[@class='button button--primary set--full']")
-    private WebElement signInButtonLocator;
+    private WebElement signInButton;
 
     @FindBy(xpath="//div[@class='primary-information__favorite invert-theme']")
-    private WebElement addToFavoriteButtonLocator;
+    private WebElement addToFavoriteButton;
 
     @FindBy(xpath="//a[@class='header-favorites__link flex']")
-    private WebElement goToFavoriteButtonLocator;
+    private WebElement goToFavoriteButton;
 
     @FindBy(xpath="//button[@class='minicart__header-action minicart__header-action-close']")
-    private WebElement closeItemsInCartButtonLocator;
+    private WebElement closeItemsInCartButton;
 
     @FindBy(xpath="//a[@class='header-utility__item--icon minicart__link flex']")
-    private WebElement goToCartButtonLocator;
+    private WebElement goToCartButton;
 
     public ConverseSneakerPage(WebDriver driver){
         super(driver);
@@ -48,7 +48,7 @@ public class ConverseSneakerPage extends AbstractPage {
     }
 
     public ConverseSneakerPage closeThePopUpWindow(){
-        waitUntilElementIsClickable(closeBlockButtonLocator).click();
+        waitUntilElementIsClickable(closeBlockButton).click();
         return this;
     }
 
@@ -56,24 +56,24 @@ public class ConverseSneakerPage extends AbstractPage {
         waitUntilVisibilityOf(signInLocator).click();
         waitUntilVisibilityOf(inputLoginLocator).sendKeys(testData.getLogin());
         waitUntilVisibilityOf(inputPasswordLocator).sendKeys(testData.getPassword());
-        waitUntilElementIsClickable(signInButtonLocator).click();
+        waitUntilElementIsClickable(signInButton).click();
 
         waitUntilPresenceOfElement(By.xpath("//span[text()='Hey, Alexandra']"));
         return this;
     }
 
     public ConverseSneakerPage addProductToFavorites(){
-        WebElement addToFavoriteButton = waitUntilVisibilityOf(addToFavoriteButtonLocator);
+        WebElement addProductToFavoriteButton = waitUntilVisibilityOf(addToFavoriteButton);
         Actions actions = new Actions(driver);
-        actions.moveToElement(addToFavoriteButton).click().build().perform();
-        addToFavoriteButton.click();
+        actions.moveToElement(addProductToFavoriteButton).click().build().perform();
+        addProductToFavoriteButton.click();
 
         waitUntilPresenceOfElement(By.cssSelector(".favorite-action__add"));
         return this;
     }
 
     public ConverseFavoritesPage openFavoritePage(){
-        waitUntilElementIsClickable(goToFavoriteButtonLocator).click();;
+        waitUntilElementIsClickable(goToFavoriteButton).click();;
         return new ConverseFavoritesPage(driver);
     }
 
@@ -83,12 +83,12 @@ public class ConverseSneakerPage extends AbstractPage {
     }
 
     public  ConverseSneakerPage closeItemsInCart(){
-        waitUntilElementIsClickable(closeItemsInCartButtonLocator).click();
+        waitUntilElementIsClickable(closeItemsInCartButton).click();
         return this;
     }
 
     public ConverseCartPage openCartPage(){
-        waitUntilElementIsClickable(goToCartButtonLocator).click();
+        waitUntilElementIsClickable(goToCartButton).click();
         return new ConverseCartPage(driver);
     }
 

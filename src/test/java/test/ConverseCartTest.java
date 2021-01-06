@@ -11,7 +11,6 @@ public class ConverseCartTest extends CommonConditions {
     private final String expectedResult =  "Chuck Taylor All Star";
     private final String productRemove =  "You have (0) items in your cart.";
     private final String expectedColor =  "Navy";
-    private final String expectedUserName =  "Hey, Alexandra";
 
     @Test
     public void filesCookingTest(){
@@ -49,7 +48,6 @@ public class ConverseCartTest extends CommonConditions {
         Assert.assertEquals(cartResult, expectedResult);
     }
 
-
     @Test
     public void editColorFromCartTest() {
         String updateSize = new ConverseSneakerPage(driver)
@@ -63,23 +61,13 @@ public class ConverseCartTest extends CommonConditions {
     }
 
     @Test
-    public void loginAsLoggedInUser(){
-        User testUser = UserCreator.withCredentialsFromProperty();
-        String result = new ConverseSneakerPage(driver)
-                .openSneakerPage()
-                .logIntoAccount(testUser)
-                .findUser();
-        Assert.assertEquals(result, expectedUserName);
-    }
-
-    @Test
     public void inputNoCorrectPromocodTest(){
-        boolean result = new ConverseSneakerPage(driver)
+        boolean inputNoCorrectPromocodResult = new ConverseSneakerPage(driver)
                 .openSneakerPage()
                 .addProductToCart()
                 .closeItemsInCart()
                 .openCartPage()
                 .inputNoCorrectPromocod("333");
-        Assert.assertTrue(result);
+        Assert.assertTrue(inputNoCorrectPromocodResult);
     }
 }
