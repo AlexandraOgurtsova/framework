@@ -10,8 +10,11 @@ import org.testng.annotations.Listeners;
 import util.TestListener;
 
 @Listeners({TestListener.class})
+
 public abstract class AbstractPage {
+
     protected WebDriver driver;
+
     protected final int WAIT_TIMEOUT_SECONDS = 100;
 
     protected AbstractPage(WebDriver driver) {

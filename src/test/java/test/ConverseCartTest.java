@@ -1,11 +1,7 @@
 package test;
 
 import model.User;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.ConverseSneakerPage;
 import service.UserCreator;
@@ -16,6 +12,18 @@ public class ConverseCartTest extends CommonConditions {
     private final String productRemove =  "You have (0) items in your cart.";
     private final String expectedColor =  "Navy";
     private final String expectedUserName =  "Hey, Alexandra";
+
+    @Test
+    public void filesCookingTest(){
+        User testUser = UserCreator.withCredentialsFromProperty();
+        String cartResult = new ConverseSneakerPage(driver)
+                .openSneakerPage()
+                .addProductToCart()
+                .logIntoAccount(testUser)
+                .openCartPage()
+                .getCartResult();
+        Assert.assertEquals(cartResult, expectedResult);
+    }
 
     @Test
     public void removeProductFromCartTest(){
@@ -55,6 +63,16 @@ public class ConverseCartTest extends CommonConditions {
     }
 
     @Test
+    public void loginAsLoggedInUser(){
+        User testUser = UserCreator.withCredentialsFromProperty();
+        String result = new ConverseSneakerPage(driver)
+                .openSneakerPage()
+                .logIntoAccount(testUser)
+                .findUser();
+        Assert.assertEquals(result, expectedUserName);
+    }
+
+    @Test
     public void inputNoCorrectPromocodTest(){
         boolean result = new ConverseSneakerPage(driver)
                 .openSneakerPage()
@@ -63,27 +81,5 @@ public class ConverseCartTest extends CommonConditions {
                 .openCartPage()
                 .inputNoCorrectPromocod("333");
         Assert.assertTrue(result);
-    }
-
-    @Test
-    public void filesCookingTest(){
-        User testUser = UserCreator.withCredentialsFromProperty();
-        String cartResult = new ConverseSneakerPage(driver)
-                .openSneakerPage()
-                .addProductToCart()
-                .logIntoAccount(testUser)
-                .openCartPage()
-                .getCartResult();
-        Assert.assertEquals(cartResult, expectedResult);
-    }
-
-    @Test
-    public void loginAsLoggedInUser(){
-        User testUser = UserCreator.withCredentialsFromProperty();
-        String result = new ConverseSneakerPage(driver)
-                .openSneakerPage()
-                .logIntoAccount(testUser)
-                .findUser();
-        Assert.assertEquals(result, expectedUserName);
     }
 }

@@ -6,10 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ConverseSneakerPage extends AbstractPage {
+
     private final String SNEAKERS_URL = "https://www.converse.com/shop/p/chuck-taylor-all-star-unisex-high-top-shoe/M9622_040.html?pid=M9006MP&dwvar_M9006MP_color=navy&dwvar_M9006MP_size=040&dwvar_M9006MP_width=standard&styleNo=M9622&pdp=true";
 
     @FindBy(xpath="//button[@class='window-modal__close']")

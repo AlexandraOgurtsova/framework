@@ -4,7 +4,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import test.ConverseSearchTest;
 
 public class ConverseHomePage extends AbstractPage {
 
@@ -27,7 +26,6 @@ public class ConverseHomePage extends AbstractPage {
 
     @FindBy(xpath="//h1[@class='pdp-primary-information__product-name display--small-up']")
     private WebElement findConcretResultLocator;
-
 
     public ConverseHomePage(WebDriver driver) {
         super(driver);

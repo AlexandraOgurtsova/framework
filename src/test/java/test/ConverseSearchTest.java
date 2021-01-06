@@ -1,12 +1,9 @@
 package test;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.ConverseHomePage;
-import page.ConverseSneakerPage;
+
 
 public class ConverseSearchTest extends CommonConditions {
 
